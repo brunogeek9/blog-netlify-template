@@ -30,25 +30,21 @@
 
 <script>
 import { scrollTo, kebabify, prettyDate } from '../helpers'
-
 export default {
   name: 'blog-feed',
   resource: 'BlogFeed',
-
   props: {
     filters: {
       type: Object,
       default: () => {}
     }
   },
-
   data() {
     return {
       posts: [],
       transition: 'preview-appear'
     }
   },
-
   computed: {
     reading() { return this.filters.post },
     scrollDelay() { return (this.$device.phone) ? 0 : 560 },
@@ -60,9 +56,7 @@ export default {
         post: (filter, { id }) => filter === id,
         author: (filter, { author }) => filter === this.kebabify(author)
       }
-
       if (!Object.keys(this.filters).length) return this.posts
-
       return this.posts.filter(post => {
         return Object.keys(this.filters).every(filter => {
           return filterBy[filter](this.filters[filter], post)
@@ -70,7 +64,6 @@ export default {
       })
     }
   },
-
   methods: {
     scrollTo,
     kebabify,
@@ -82,17 +75,14 @@ export default {
       let interval
       const stack = () => {
         this.posts.push(posts.shift())
-
         if (!posts.length) {
           this.transition = 'preview'
           clearInterval(interval)
         }
       }
-
       interval = setInterval(stack, 125)
     }
   },
-
   beforeMount() {
     this.$getResource('feed')
       .then(posts => {
