@@ -17,7 +17,7 @@
 
       <footer class="post__footer">
         <vue-disqus v-if="commentsReady" shortname="vue-blog-demo"
-          :key="post" :identifier="post" :url="`https://vue-blog-demo.netlify.com/read/${post}`"/>
+          :key="post" :identifier="post" :url="`https://rn-liberdade.netlify.app/read/${post}`"/>
       </footer>
     </article>
   </transition>

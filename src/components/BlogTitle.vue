@@ -2,7 +2,7 @@
 import { unkebabify } from '../helpers'
 
 export default {
-  name: 'blog-title',
+  name: 'RN LIBERDADE',
   props: ['blogName', 'filters'],
 
   data() {
